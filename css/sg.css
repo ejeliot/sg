@@ -1,0 +1,199 @@
+/***********************************/
+/* sg (960) - a simple grid system */
+/* Author - Ed Eliot               */
+/***********************************/
+
+/* SECTION START: RESET & FONTS */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset,  
+p, blockquote, th, td, address, caption, cite, em, strong, abbr, 
+acronym, img { 
+    border: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font-weight: normal;
+	font-style: normal;
+	text-align: left;
+}
+body {
+    font: 13px/1.231 helvetica, arial, clean, sans-serif;
+    *font-size: small;
+    *font: x-small;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: inherit;
+    font: 100%;
+}
+ol, ul {
+	list-style: none;
+}
+select, input, textarea, button {
+    font: 99% helvetica, arial, clean, sans-serif;
+}
+pre, code {
+    font-family: monospace;
+    *font-size: 108%;
+    line-height: 100%;
+}
+/* SECTION END: RESET & FONTS */
+
+/* SECTION START: GRIDS */
+.sg {
+    width: 960px;
+    margin: 0 auto;
+}
+/* descendant selector fine for all browsers except IE (versions 6 and below) */
+.sg .row > div {
+    float: left;
+    margin: 0 10px;
+}
+.sg .col1 {
+    width: 60px;
+}
+.sg .col2 {
+    width: 140px;
+}
+.sg .col3 {
+    width: 220px;
+}
+.sg .col4 {
+    width: 300px;
+}
+.sg .col5 {
+    width: 380px;
+}
+.sg .col6 {
+    width: 460px;
+}
+.sg .col7 {
+    width: 540px;
+}
+.sg .col8 {
+    width: 620px;
+}
+.sg .col9 {
+    width: 700px;
+}
+.sg .col10 {
+    width: 780px;
+}
+.sg .col11 {
+    width: 860px;
+}
+.sg div.col12 {
+    width: 940px;
+}
+.sg .row {
+    float: left;
+    width: 100%;
+}
+/* reset margins for first and last columns when nested inside another grid */
+.sg div.f-nested {
+    margin-left: 0;
+}
+.sg div.l-nested {
+    margin-right: 0;
+}
+.sg div.nested {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ensure columns within a given row are equal height, expand the smaller columns 
+to match the highest column within the row */
+.equal {
+    overflow: hidden;
+}
+.equal > div {
+    padding-bottom: 2000px;
+    margin-bottom: -2000px;
+}
+/* add padding to element - don't add to rows or columns as 
+it'll mess with the grid */
+.pad {
+    padding: 10px;
+}
+.pad-left {
+    padding-left: 10px;
+}
+.pad-right {
+    padding-right: 10px;
+}
+.pad-left-right {
+    padding: 0 10px;
+}
+/* clear floats */
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix {
+    zoom: 1;
+}
+/* SECTION END: GRIDS */
+
+/**********************************************************************/
+/* from here on down is pretty optional - the styles may work well    */
+/* as simple default, particularly for wireframing but can easily be  */
+/* removed if all you're after is a basic reset and grid system       */
+/**********************************************************************/
+
+/* SECTION START: DEFAULT TEXT STYLING */
+.typo em {
+    font-style: italic;
+}
+.typo strong {
+    font-weight: bold;
+}
+.typo p {
+    margin: 10px 0;
+}
+.typo h1, .typo h2, 
+.typo h3, .typo h4, .typo h5, 
+.typo h6 {
+    margin: 10px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.typo p:first-child, .typo h1:first-child, .typo h2:first-child, 
+.typo h3:first-child, .typo h4:first-child, .typo h5:first-child, 
+.typo h6:first-child {
+    margin-top: 0;
+}
+.typo ul li {
+    list-style: disc;
+}
+.typo ol li {
+    list-style: decimal;
+}
+.typo li {
+    margin-left: 15px;
+}
+.typo li li {
+    margin-left: 30px;
+}
+.typo li li li {
+    margin-left: 45px;
+}
+/* SECTION END: DEFAULT TEXT STYLING */
+
+/* SECTION START: MODULES & WIREFRAMING */
+.module, .b-module, .f-module {
+    margin: 10px 0;
+}
+.module:first-child, .b-module:first-child, .f-module:first-child {
+    margin-top: 0;
+}
+.b-module {
+    border: 1px solid #ccc;
+}
+.f-module {
+    background: #eee;
+}
+
+/* SECTION END: MODULES & WIREFRAMING */
