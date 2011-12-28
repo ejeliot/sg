@@ -6,7 +6,8 @@
 /* SECTION START: RESET & FONTS */
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset,  
 p, blockquote, th, td, address, caption, cite, em, strong, abbr, 
-acronym, img { 
+acronym, img, article, aside, details, figcaption, figure, footer, header, hgroup, 
+menu, nav, section {
     border: 0;
 	margin: 0;
 	padding: 0;
@@ -30,12 +31,16 @@ ol, ul {
 	list-style: none;
 }
 select, input, textarea, button {
-    font: 99% helvetica, arial, clean, sans-serif;
+    font: 100% helvetica, arial, clean, sans-serif;
 }
-pre, code {
-    font-family: monospace;
-    *font-size: 108%;
-    line-height: 100%;
+input, select {
+    vertical-align: middle;
+}
+
+/* make HTML5 elements block level */
+article, aside, details, figcaption, figure, footer, 
+header, hgroup, menu, nav, section {
+    display: block;
 }
 /* SECTION END: RESET & FONTS */
 
@@ -45,7 +50,18 @@ pre, code {
     margin: 0 auto;
 }
 /* descendant selector fine for all browsers except IE (versions 6 and below) */
-.sg .row > div {
+.sg .row > .col1,
+.sg .row > .col2,
+.sg .row > .col3,
+.sg .row > .col4,
+.sg .row > .col5,
+.sg .row > .col6,
+.sg .row > .col7,
+.sg .row > .col8,
+.sg .row > .col9,
+.sg .row > .col10,
+.sg .row > .col11,
+.sg .row > .col12 {
     float: left;
     margin: 0 10px;
 }
@@ -82,7 +98,7 @@ pre, code {
 .sg .col11 {
     width: 860px;
 }
-.sg div.col12 {
+.sg .col12 {
     width: 940px;
 }
 .sg .row {
@@ -90,26 +106,17 @@ pre, code {
     width: 100%;
 }
 /* reset margins for first and last columns when nested inside another grid */
-.sg div.f-nested {
+.sg .row > .f-nested {
     margin-left: 0;
 }
-.sg div.l-nested {
+.sg .row > .l-nested {
     margin-right: 0;
 }
-.sg div.nested {
+.sg .row > .nested {
     margin-left: 0;
     margin-right: 0;
 }
 
-/* ensure columns within a given row are equal height, expand the smaller columns 
-to match the highest column within the row */
-.equal {
-    overflow: hidden;
-}
-.equal > div {
-    padding-bottom: 2000px;
-    margin-bottom: -2000px;
-}
 /* add padding to element - don't add to rows or columns as 
 it'll mess with the grid */
 .pad {
@@ -125,7 +132,7 @@ it'll mess with the grid */
     padding: 0 10px;
 }
 /* clear floats */
-.clearfix:after {
+.sg:after, .clearfix:after {
 	visibility: hidden;
 	display: block;
 	font-size: 0;
@@ -133,7 +140,7 @@ it'll mess with the grid */
 	clear: both;
 	height: 0;
 }
-.clearfix {
+.sg, .clearfix {
     zoom: 1;
 }
 /* SECTION END: GRIDS */
@@ -145,42 +152,67 @@ it'll mess with the grid */
 /**********************************************************************/
 
 /* SECTION START: DEFAULT TEXT STYLING */
-.typo em {
+em {
     font-style: italic;
 }
-.typo strong {
+strong {
     font-weight: bold;
 }
-.typo p {
+p {
     margin: 10px 0;
 }
-.typo h1, .typo h2, 
-.typo h3, .typo h4, .typo h5, 
-.typo h6 {
+pre, code {
+    font-family: monospace;
+    *font-size: 108%;
+    line-height: 100%;
+}
+abbr[title], dfn[title] {
+    border-bottom: 1px dotted;
+}
+h1, h2, h3, h4, h5, h6 {
     margin: 10px 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.typo p:first-child, .typo h1:first-child, .typo h2:first-child, 
-.typo h3:first-child, .typo h4:first-child, .typo h5:first-child, 
-.typo h6:first-child {
+p:first-child, h1:first-child, h2:first-child, 
+h3:first-child, h4:first-child, h5:first-child, 
+h6:first-child {
     margin-top: 0;
 }
-.typo ul li {
+.copy ul li {
     list-style: disc;
 }
-.typo ol li {
+.copy ol li {
     list-style: decimal;
 }
-.typo li {
+.copy li {
     margin-left: 15px;
 }
-.typo li li {
+.copy li li {
     margin-left: 30px;
 }
-.typo li li li {
+.copy li li li {
     margin-left: 45px;
 }
 /* SECTION END: DEFAULT TEXT STYLING */
+
+/* DEFAULT TABLE STYLING */
+table {
+    border-collapse: collapse;
+}
+thead tr th {
+    border: 1px solid #777;
+    border-width: 1px 0;
+}
+tbody tr td {
+    border-top: 1px solid #eee;
+}
+tbody tr:first-child td {
+    border: none;
+}
+th, td {
+    padding: 5px;
+}
+/* SECTION END: DEFAULT TABLE STYLING */
 
 /* SECTION START: MODULES & WIREFRAMING */
 .module, .b-module, .f-module {
@@ -195,5 +227,4 @@ it'll mess with the grid */
 .f-module {
     background: #eee;
 }
-
 /* SECTION END: MODULES & WIREFRAMING */
